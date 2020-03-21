@@ -1,6 +1,7 @@
-FROM python:3.7
+FROM python:3.7-stretch
 
-RUN apt-get -y update
+RUN apt-get update -y
+
 RUN apt-get install -y --fix-missing \
     build-essential \
     cmake \
