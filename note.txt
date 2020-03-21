@@ -1,0 +1,9 @@
+- Create install file for docker:
+    pip freeze > requirements.txt
+- Migration:
+    + Run app at the first time:
+        python manage.py db init
+    + Migration model to database
+        python manage.py db migrate
+    + Apply model to table in database
+        python manage.py db upgrade

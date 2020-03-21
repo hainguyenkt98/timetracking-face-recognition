@@ -1,5 +1,6 @@
 from flask import Blueprint, request, url_for, redirect, jsonify
-from ...models import db, User
+from app.app import app, db
+from app.models.user import User
 
 users = Blueprint('users', __name__)
 
@@ -9,6 +10,8 @@ def create_user():
     password = request.form.get('password')
 
     user = User(username=username, password=password)
+
+    print('-----------------%s----------------' % user)
     db.session.add(user)
     db.session.commit()
     print ('Create new user sussessfull !')
