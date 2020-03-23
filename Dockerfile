@@ -32,16 +32,22 @@ RUN cd ~ && \
     cd  dlib/ && \
     python3 setup.py install --yes USE_AVX_INSTRUCTIONS
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/flask-tutorial
+
+#RUN mkdir -p /home/user/flask-tutorial
 
 COPY . .
 
 RUN pip3 install -r requirements.txt
-RUN python3 manage.py db init && python3 manage.py db migrate
+
+#RUN pip install pygobject wxPython wxPython-common
+#RUN python3 manage.py db init && python3 manage.py db migrate
+
+ENV PYTHONPATH /usr/src/app/flask-tutorial/app
 
 ENTRYPOINT [ "python3" ]
 
-CMD [ "manage.py db upgrade && run.py" ]
+CMD [ "run.py" ]
 
-EXPOSE 5005
+EXPOSE 5000
 

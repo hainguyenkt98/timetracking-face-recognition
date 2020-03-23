@@ -1,5 +1,5 @@
 from flask import Blueprint, request, url_for, redirect, jsonify
-from app.app import app, db
+from app.app import db
 from app.models.user import User
 
 users = Blueprint('users', __name__)
@@ -11,10 +11,8 @@ def create_user():
 
     user = User(username=username, password=password)
 
-    print('-----------------%s----------------' % user)
     db.session.add(user)
     db.session.commit()
-    print ('Create new user sussessfull !')
     return jsonify(user.serialize)
 
 @users.route('/<string:name>', methods=['GET'])
