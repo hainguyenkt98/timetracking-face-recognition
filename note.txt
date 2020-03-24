@@ -7,3 +7,7 @@
         python manage.py db migrate
     + Apply model to table in database
         python manage.py db upgrade
+- sqlacodegent:
+    + Run when change database schema in PostgreSQL
+        sqlacodegen postgresql://postgres:postgres@127.0.0.1:1486/flasktutorial --outfile models.py
+- move docker-compose.yml and Dockerfile to parent folder before run 

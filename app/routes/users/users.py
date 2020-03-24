@@ -13,7 +13,7 @@ def create_user():
 
     db.session.add(user)
     db.session.commit()
-    return jsonify(user.serialize)
+    return jsonify({ username : user.username, password : user.password })
 
 @users.route('/<string:name>', methods=['GET'])
 def hello_user(name):

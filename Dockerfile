@@ -45,9 +45,12 @@ RUN pip3 install -r requirements.txt
 
 ENV PYTHONPATH /usr/src/app/flask-tutorial/app
 
-ENTRYPOINT [ "python3" ]
+#RUN python3 manage.py db init
+#RUN python3 manage.py db migrate
+#RUN python3 manage.py db upgrade
 
-CMD [ "run.py" ]
+#ENTRYPOINT [ "python3" ]
 
-EXPOSE 5005
+#CMD [ "run.py" ]
 
+#EXPOSE 5005
