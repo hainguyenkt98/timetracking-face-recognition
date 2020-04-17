@@ -30,24 +30,19 @@ RUN cd ~ && \
     mkdir -p dlib && \
     git clone -b 'v19.5' --single-branch https://github.com/davisking/dlib.git dlib/ && \
     cd  dlib/ && \
-    python3 setup.py install --yes USE_AVX_INSTRUCTIONS
+    python3 setup.py install --yes
 
-WORKDIR /usr/src/app/flask-tutorial
-
-#RUN mkdir -p /home/user/flask-tutorial
+WORKDIR /usr/src/app
 
 COPY . .
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install Flask
+RUN pip3 install numpy
+RUN pip3 install face_recognition
+RUN pip3 install pathlib
 
-#RUN pip install pygobject wxPython wxPython-common
-#RUN python3 manage.py db init && python3 manage.py db migrate
+ENV PYTHONPATH /usr/src/app/app
 
-ENV PYTHONPATH /usr/src/app/flask-tutorial/app
-
-#RUN python3 manage.py db init
-#RUN python3 manage.py db migrate
-#RUN python3 manage.py db upgrade
 
 #ENTRYPOINT [ "python3" ]
 

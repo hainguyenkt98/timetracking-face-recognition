@@ -1,3 +1,11 @@
+- Access bash in container is running
+    docker exec -it <container_id> /bin/bash
+
+- Remove images have tag name is <none>
+    docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+
+- ERROR: ModuleNotFoundError: No module named 
+    export PYTHONPATH=.
 - Create install file for docker:
     pip freeze > requirements.txt
 - Migration:
